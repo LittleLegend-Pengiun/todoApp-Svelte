@@ -47,27 +47,31 @@ $: {
 <h1 class="text-3xl text-center font-bold m-5">Todo App</h1>
 <title>Todo App by Svelte</title>
 <body class="flex justify-center items-center flex-col">
-    <label class="flex-col flex">
-        <p class="justify-center text-center font-bold">Enter new todo:</p>
-        <input type="text" bind:value={input}
-        on:keypress={(e) => {
-            if (e.charCode === 13) 
-                addTodo(input)
-        }}
-        class="border border-gray-700 rounded-md m-3 p-3" />
-    </label>
-
-    <div class="flex flex-row space-x-2">
-        <button title="Add todo" on:click={() => addTodo(input)}
-        class="m-3 p-3 text-center border-blue-600 bg-blue-600 text-white">
-            Add Todo
-        </button>
-        <button title="Clear all" on:click={() => clearAllTodo()}
-        class="m-3 p-3 text-center border-red-600 bg-red-600 text-white"
-        >
-            Clear all todos
-        </button>
-    </div>
+    <form on:submit|preventDefault={() => addTodo(input)}>
+        <label class="flex-col flex">
+            <p class="justify-center text-center font-bold">
+                Enter new todo:
+            </p>
+            <input type="text" bind:value={input}
+            on:keypress={(e) => {
+                if (e.charCode === 13) 
+                    addTodo(input)
+            }}
+            class="border border-gray-700 rounded-md m-3 p-3" />
+        </label>
+    
+        <div class="flex flex-rw space-x-2 justify-center">
+            <button value="Add Todo" type="submit"
+            class="m-3 p-3 text-center border-blue-600 bg-blue-600 text-white">
+                Add Todo
+            </button>
+            <button title="Clear all" on:click={() => clearAllTodo()}
+            class="m-3 p-3 text-center border-red-600 bg-red-600 text-white"
+            >
+                Clear all todos
+            </button>
+        </div>
+    </form>
     
     {#each showItemList as item}
         <Todo {...item} 
