@@ -47,6 +47,9 @@ $: {
 <h1 class="text-3xl text-center font-bold m-5">Todo App</h1>
 <title>Todo App by Svelte</title>
 <body class="flex justify-center items-center flex-col">
+    <label class="m-1 p-1 font-bold" for="todo">
+        Enter new todo:
+    </label>
     <input type="text" bind:value={input}
     on:keypress={(e) => {
         if (e.charCode === 13) 
