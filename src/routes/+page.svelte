@@ -53,11 +53,11 @@ $: {
 
     <div class="flex flex-row space-x-2">
         <button title="Add todo" on:click={() => addTodo(input)}
-        class="m-3 p-3 text-center text-blue-500 border-blue-500 hover:bg-blue-400 hover:text-white">
+        class="m-3 p-3 text-center text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white">
             Add Todo
         </button>
         <button title="Clear all" on:click={() => clearAllTodo()}
-        class="m-3 p-3 text-center text-red-500 border-red-400 hover:bg-red-400 hover:text-white"
+        class="m-3 p-3 text-center text-red-500 border-red-400 hover:bg-red-500 hover:text-white"
         >
             Clear all todos
         </button>
