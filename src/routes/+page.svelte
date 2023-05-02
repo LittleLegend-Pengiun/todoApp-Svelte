@@ -1,9 +1,11 @@
 <script>
     import Todo from "../components/Todo.svelte";
     import { v4 as uuidv4 } from "uuid";
+    import {store} from "../stores/store"
 
 let input = ""
-let itemList = []
+let itemList = $store
+let showItemList;
 const addTodo = (title) => {
     let item = {
         id: uuidv4(),
@@ -30,18 +32,31 @@ const toggleCheck = (id) => {
     const newTodo = {...oldTodo, isDone: !oldTodo.isDone}
     itemList[i] = newTodo;
 }
+const clearAllTodo = () => {
+    itemList = []
+} 
 
-$: showItemList = itemList.filter((item) => item.isFinished === false)
+$: {
+    showItemList = itemList?.filter((item) => item.isFinished === false)
+    localStorage.setItem('data', JSON.stringify(showItemList));
+} 
 </script>
 
 <h1 class="text-3xl text-center font-bold m-5">Todo App</h1>
 <body class="flex justify-center items-center flex-col">
     <input type="text" bind:value={input}
     class="border border-gray-700 rounded-md m-3 p-3"/>
-    <button title="Add todo" on:click={() => addTodo(input)}
-    class="m-3 p-3 text-center rounded-md bg-blue-500 text-white">
-        Add Todo
-    </button>
+    <div class="flex flex-row space-x-2">
+        <button title="Add todo" on:click={() => addTodo(input)}
+        class="m-3 p-3 text-center text-blue-500 border-blue-500 hover:bg-blue-400 hover:text-white">
+            Add Todo
+        </button>
+        <button title="Clear all" on:click={() => clearAllTodo()}
+        class="m-3 p-3 text-center text-red-500 border-red-400 hover:bg-red-400 hover:text-white"
+        >
+            Clear all todos
+        </button>
+    </div>
     
     {#each showItemList as item}
         <Todo {...item} 
@@ -52,7 +67,9 @@ $: showItemList = itemList.filter((item) => item.isFinished === false)
 
 
 <style>
-button:hover {
-    background-color: green;
+button {
+    border-radius: 0.4rem;
+    border-width: 2px;  
+    background-color: white;
 }
 </style>
