@@ -8,9 +8,10 @@
 </script>
 
 <div class={`border border-gray-500 rounded-md mt-5 m-1 p-2 space-x-3 flex flex-row todo-container items-center ${isDone? "bg-green-300": "bg-inherit"}`}>
-    <label>
+    <label class="flex flex-row justify-center items-center">
         <input type="checkbox" bind:checked={isDone} 
         class="w-4 h-4 ml-2" on:change={() => toggleCheck(id)}/>
+        <p class="text-xs m-1">{isDone? "Done": "Undone"}</p>
     </label>
     <p class="font-bold text-lg flex-1">{title}</p>
     <button class={`rounded-md ${isDone? "": "hidden"}`}>
