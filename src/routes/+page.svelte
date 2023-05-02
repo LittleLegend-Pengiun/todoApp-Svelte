@@ -71,8 +71,8 @@ $: {
     
     {#each showItemList as item}
         <Todo {...item} 
-            deleteTodo={deleteTodo}
-            toggleCheck={toggleCheck}/>
+            {deleteTodo}
+            {toggleCheck}/>
     {/each}
 </body>
 
