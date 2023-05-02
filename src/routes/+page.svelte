@@ -47,15 +47,15 @@ $: {
 <h1 class="text-3xl text-center font-bold m-5">Todo App</h1>
 <title>Todo App by Svelte</title>
 <body class="flex justify-center items-center flex-col">
-    <label class="m-1 p-1 font-bold" for="todo">
-        Enter new todo:
+    <label class="flex-col flex">
+        <p class="justify-center text-center font-bold">Enter new todo:</p>
+        <input type="text" bind:value={input}
+        on:keypress={(e) => {
+            if (e.charCode === 13) 
+                addTodo(input)
+        }}
+        class="border border-gray-700 rounded-md m-3 p-3" />
     </label>
-    <input type="text" bind:value={input}
-    on:keypress={(e) => {
-        if (e.charCode === 13) 
-            addTodo(input)
-    }}
-    class="border border-gray-700 rounded-md m-3 p-3" />
 
     <div class="flex flex-row space-x-2">
         <button title="Add todo" on:click={() => addTodo(input)}
