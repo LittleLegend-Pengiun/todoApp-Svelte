@@ -45,6 +45,7 @@ $: {
 </script>
 
 <h1 class="text-3xl text-center font-bold m-5">Todo App</h1>
+<title>Todo App by Svelte</title>
 <body class="flex justify-center items-center flex-col">
     <input type="text" bind:value={input}
     on:keypress={(e) => {
@@ -55,11 +56,11 @@ $: {
 
     <div class="flex flex-row space-x-2">
         <button title="Add todo" on:click={() => addTodo(input)}
-        class="m-3 p-3 text-center text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white">
+        class="m-3 p-3 text-center border-blue-500 bg-blue-500 text-white">
             Add Todo
         </button>
         <button title="Clear all" on:click={() => clearAllTodo()}
-        class="m-3 p-3 text-center text-red-500 border-red-400 hover:bg-red-500 hover:text-white"
+        class="m-3 p-3 text-center border-red-500 bg-red-500 text-white"
         >
             Clear all todos
         </button>
@@ -76,7 +77,13 @@ $: {
 <style>
 button {
     border-radius: 0.4rem;
-    border-width: 2px;  
-    background-color: white;
+    border-width: 2px;
+}
+button:hover {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+input {
+    min-width: 300px;
 }
 </style>
