@@ -6,6 +6,7 @@
 let input = ""
 let itemList = $store
 let showItemList;
+
 const addTodo = (title) => {
     let item = {
         id: uuidv4(),
@@ -32,6 +33,7 @@ const toggleCheck = (id) => {
     const newTodo = {...oldTodo, isDone: !oldTodo.isDone}
     itemList[i] = newTodo;
 }
+
 const clearAllTodo = () => {
     itemList = []
 } 
