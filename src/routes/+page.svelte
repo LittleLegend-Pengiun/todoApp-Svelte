@@ -16,13 +16,22 @@ const addTodo = (title) => {
     
     input = ""
 }
+
 const deleteTodo = (id) => {
     const i = itemList.findIndex((item) => item.id === id);
     const oldTodo = itemList[i];
     const newTodo = {...oldTodo, isFinished: true}
     itemList[i] = newTodo;
 }
-$: showItemList = itemList.filter((item) => item.isFinished == false)
+
+const toggleCheck = (id) => {
+    const i = itemList.findIndex((item) => item.id === id);
+    const oldTodo = itemList[i];
+    const newTodo = {...oldTodo, isDone: !oldTodo.isDone}
+    itemList[i] = newTodo;
+}
+
+$: showItemList = itemList.filter((item) => item.isFinished === false)
 </script>
 
 <h1 class="text-3xl text-center font-bold m-5">Todo App</h1>
@@ -35,7 +44,9 @@ $: showItemList = itemList.filter((item) => item.isFinished == false)
     </button>
     
     {#each showItemList as item}
-        <Todo {...item} deleteTodo={deleteTodo}/>
+        <Todo {...item} 
+            deleteTodo={deleteTodo}
+            toggleCheck={toggleCheck}/>
     {/each}
 </body>
 
