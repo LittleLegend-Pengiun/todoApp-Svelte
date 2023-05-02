@@ -45,7 +45,12 @@ $: {
 <h1 class="text-3xl text-center font-bold m-5">Todo App</h1>
 <body class="flex justify-center items-center flex-col">
     <input type="text" bind:value={input}
-    class="border border-gray-700 rounded-md m-3 p-3"/>
+    on:keypress={(e) => {
+        if (e.charCode === 13) 
+            addTodo(input)
+    }}
+    class="border border-gray-700 rounded-md m-3 p-3" />
+
     <div class="flex flex-row space-x-2">
         <button title="Add todo" on:click={() => addTodo(input)}
         class="m-3 p-3 text-center text-blue-500 border-blue-500 hover:bg-blue-400 hover:text-white">
