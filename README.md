@@ -1,8 +1,22 @@
-# create-svelte
+# SIMPLE TODO APP WITH SVELTE
+
+## Overview
+
+Usage: Nodejs LTS 18.16.0
+
+SEO point by PageSpeed Insignts
+
+<p>
+ <img src="./static/SEO_points.png" width="100%"/>
+</p>
+
+To view a demo, [click here](https://todo-app-svelte-seven.vercel.app/).
+
+## Svelte instructions
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-## Creating a project
+#### Creating a project
 
 If you're seeing this, you've probably already done this step. Congrats!
 
@@ -14,7 +28,7 @@ npm create svelte@latest
 npm create svelte@latest my-app
 ```
 
-## Developing
+#### Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
@@ -25,7 +39,7 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
+#### Building
 
 To create a production version of your app:
 
