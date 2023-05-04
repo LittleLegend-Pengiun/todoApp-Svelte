@@ -93,4 +93,8 @@ button:hover {
 input {
     min-width: 300px;
 }
+
+input:hover {
+    @apply bg-emerald-200;
+}
 </style>
